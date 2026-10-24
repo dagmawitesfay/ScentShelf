@@ -7,7 +7,7 @@ const mongoose = require("mongoose")
 
 const{ObjectId} =require("mongodb") // works with id 
  
-const PORT = 8001
+const PORT = process.env.PORT || 3000;
 
 require("dotenv").config()
 app.use(express.json()) 
