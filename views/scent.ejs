@@ -46,7 +46,7 @@
           <input type="text" name="brand" id="brand" required placeholder="Dior"/>
         </div>
 
-              <!-- Brand -->
+              <!-- Notes -->
         <div class="field">
           <label for="name">Notes </label>
           <input type="text" name="notes" id="notes" required placeholder="bergamot,pepper,ambroxan"/>
@@ -122,7 +122,7 @@
 
                 <!-- Button wrapper -->
                  <section class="button-wrapper">
-                    <button class="btn edit ">Edit</button>
+                    <a class="btn edit" href="/perfume/<%= perfume._id %>/edit">Edit</a>
                     <button data-perfume-id="<%= perfume._id %>" class="btn delete">Delete</button>
                  </section>
                   </div>

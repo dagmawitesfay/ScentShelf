@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scent Shelf</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+     <script src="https://kit.fontawesome.com/75136afa19.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <section class="form-container">
+      <form action="/perfume/<%= perfume._id%>/edit" method="post">
+        <h3>Edit Collection </h3>
+        <p>Edit any mistakes then save and it will automatically reflect the new perfumes</p>
+
+      <!-- Image Section -->
+        <div class="field">
+          <label for="name">Image URL </label>
+          <input type="text" name="image" id="image" required placeholder="https://" value="<%= perfume.image %>"/>
+        </div>
+
+           <!-- Name Section -->
+        <div class="field">
+          <label for="name">Name </label>
+          <input type="text" name="name" id="name" required placeholder="Sauvage" value="<%= perfume.name %>"/>
+        </div>
+
+            <!-- Brand -->
+        <div class="field">
+          <label for="name">Brand </label>
+          <input type="text" name="brand" id="brand" required placeholder="Dior" value="<%= perfume.brand %>"/>
+        </div>
+
+              <!-- Notes -->
+        <div class="field">
+          <label for="name">Notes </label>
+          <input type="text" name="notes" id="notes" required placeholder="bergamot,pepper,ambroxan" value="<%= perfume.notes %>"/>
+          <p>Seperate notes with commas</p>
+        </div>
+        <!-- Season and Rating Wrapper -->
+         <section class="season-rating-wrapper">
+        <div class="field">
+          <label for="season">Season</label>
+          <select name="season" id="season">
+            <option value="allyear" <%= perfume.season === "allyear" ? "selected" : "" %>>All Year</option>
+           <option value="summer" <%= perfume.season === "summer" ? "selected" : "" %>>Summer</option>
+           <option value="spring" <%= perfume.season === "spring" ? "selected" : "" %>>Spring</option>
+           <option value="fall" <%= perfume.season === "fall" ? "selected" : "" %>>Fall</option>
+            <option value="Winter" <%= perfume.season === "Winter" ? "selected" : "" %>>Winter</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="rating">Rating</label>
+          <select name="rating" id="rating">
+           <option value="1" <%= String(perfume.rating) === "1" ? "selected" : "" %>>1</option>
+          <option value="2" <%= String(perfume.rating) === "2" ? "selected" : "" %>>2</option>
+          <option value="3" <%= String(perfume.rating) === "3" ? "selected" : "" %>>3</option>
+           <option value="4" <%= String(perfume.rating) === "4" ? "selected" : "" %>>4</option>
+           <option value="5" <%= String(perfume.rating) === "5" ? "selected" : "" %>>5</option>
+          </select>
+        </div>
+        </section>
+
+        <a href="/" class="edit">Cancel</a>
+         <button type="submit">Save changes</button>
+      </form>
+    </section>
+
+     <script src="/main.js"></script>
+</body>
+</html>
